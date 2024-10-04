@@ -1,4 +1,13 @@
-import { Card, CardHeader, Heading, HStack, Image } from '@chakra-ui/react'
+import {
+  Card,
+  CardBody,
+  CardHeader,
+  Heading,
+  HStack,
+  Image,
+  Skeleton,
+  SkeletonText,
+} from '@chakra-ui/react'
 import { Game } from '../types/Games'
 import { PlatformsIcon } from './PlatformsIcon'
 import { CriticStore } from './CriticStore'
@@ -20,6 +29,17 @@ export const GameCard = ({ game }: Props) => {
           <CriticStore score={game.metacritic} />
         </HStack>
       </CardHeader>
+    </Card>
+  )
+}
+
+export const GameCardSkeleton = () => {
+  return (
+    <Card as="li" borderRadius={10} overflow="hidden">
+      <Skeleton height="200px" />
+      <CardBody>
+        <SkeletonText />
+      </CardBody>
     </Card>
   )
 }
