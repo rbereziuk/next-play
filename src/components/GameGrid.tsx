@@ -5,7 +5,7 @@ import { GameCard, GameCardSkeleton } from './GameCard'
 const SKELETON_ITEMS = [1, 2, 3, 4, 5, 6]
 
 export const GameGrid = () => {
-  const { games, error, isLoading } = useGames()
+  const { data: games, error, isLoading } = useGames()
 
   return (
     <Box as="section" p={5}>
