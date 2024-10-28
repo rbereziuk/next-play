@@ -12,9 +12,10 @@ import { croppedImageUrl } from '../services/cropped-image-url'
 
 interface Props {
   onSelect: React.Dispatch<React.SetStateAction<string | null>>
+  selectedGenre: string | null
 }
 
-export const GenreList = ({ onSelect }: Props) => {
+export const GenreList = ({ onSelect, selectedGenre }: Props) => {
   const { data: genres, isLoading, error } = useGenres()
 
   if (isLoading) return <Spinner />
@@ -29,6 +30,7 @@ export const GenreList = ({ onSelect }: Props) => {
             variant="link"
             whiteSpace="normal"
             textAlign="left"
+            fontWeight={selectedGenre === genre.slug ? 'bold' : 'normal'}
           >
             <HStack>
               <Image
