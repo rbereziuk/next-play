@@ -7,5 +7,6 @@ export const useGames = (gamesQuery: GamesQuery) =>
     params: {
       genres: gamesQuery.genre?.id,
       parent_platforms: gamesQuery.platform?.id,
+      ordering: gamesQuery.ordering?.value,
     },
   })
