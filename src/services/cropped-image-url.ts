@@ -1,4 +1,5 @@
 export const croppedImageUrl = (url: string) => {
+  if (!url) return 'https://placehold.co/600x400?text=Placeholder+Image'
   const dividePoint = 'media/'
   const divideIndex = url.indexOf(dividePoint) + dividePoint.length
 
