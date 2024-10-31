@@ -4,8 +4,8 @@ import { usePlatforms } from '../hooks/usePlatforms'
 import { ParentPlatform } from '../types/ParentPlatform'
 
 interface Props {
-  onSelect: React.Dispatch<React.SetStateAction<null | ParentPlatform>>
-  selectedPlatform: null | ParentPlatform
+  onSelect(platform: ParentPlatform): void
+  selectedPlatform?: ParentPlatform
 }
 
 export const PlatformSelector = ({ onSelect, selectedPlatform }: Props) => {

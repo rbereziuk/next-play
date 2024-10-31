@@ -9,10 +9,11 @@ import {
 } from '@chakra-ui/react'
 import { useGenres } from '../hooks/useGenres'
 import { croppedImageUrl } from '../services/cropped-image-url'
+import { Genre } from '../types/Genre'
 
 interface Props {
-  onSelect: React.Dispatch<React.SetStateAction<string | null>>
-  selectedGenre: string | null
+  onSelect(genre: Genre): void
+  selectedGenre?: Genre
 }
 
 export const GenreList = ({ onSelect, selectedGenre }: Props) => {
@@ -26,11 +27,11 @@ export const GenreList = ({ onSelect, selectedGenre }: Props) => {
       {genres.map((genre) => (
         <ListItem key={genre.id}>
           <Button
-            onClick={() => onSelect(genre.slug)}
+            onClick={() => onSelect(genre)}
             variant="link"
             whiteSpace="normal"
             textAlign="left"
-            fontWeight={selectedGenre === genre.slug ? 'bold' : 'normal'}
+            fontWeight={selectedGenre?.slug === genre.slug ? 'bold' : 'normal'}
           >
             <HStack>
               <Image

@@ -1,11 +1,11 @@
 import { Game } from '../types/Games'
-import { ParentPlatform } from '../types/ParentPlatform'
+import { GamesQuery } from '../types/GamesQuery'
 import { useData } from './useData'
 
-export const useGames = (
-  selectedGenre: null | string,
-  selectedPlatform: null | ParentPlatform,
-) =>
+export const useGames = (gamesQuery: GamesQuery) =>
   useData<Game>('/games', {
-    params: { genres: selectedGenre, parent_platforms: selectedPlatform?.id },
+    params: {
+      genres: gamesQuery.genre?.id,
+      parent_platforms: gamesQuery.platform?.id,
+    },
   })

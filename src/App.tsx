@@ -5,12 +5,10 @@ import { GameGrid } from './components/GameGrid'
 import { GenreList } from './components/GenreList'
 import { useState } from 'react'
 import { PlatformSelector } from './components/PlatformSelector'
-import { ParentPlatform } from './types/ParentPlatform'
+import { GamesQuery } from './types/GamesQuery'
 
 function App() {
-  const [selectedGenre, setSelectedGenre] = useState<null | string>(null)
-  const [selectedPlatform, setSelectedPlatform] =
-    useState<null | ParentPlatform>(null)
+  const [gamesQuery, setGamesQuery] = useState<GamesQuery>({})
 
   return (
     <Grid
@@ -29,20 +27,17 @@ function App() {
       <Show above="lg">
         <GridItem as="aside" area="aside" px={5}>
           <GenreList
-            onSelect={setSelectedGenre}
-            selectedGenre={selectedGenre}
+            onSelect={(genre) => setGamesQuery({ ...gamesQuery, genre })}
+            selectedGenre={gamesQuery.genre}
           />
         </GridItem>
       </Show>
       <GridItem as="main" area="main">
         <PlatformSelector
-          onSelect={setSelectedPlatform}
-          selectedPlatform={selectedPlatform}
+          onSelect={(platform) => setGamesQuery({ ...gamesQuery, platform })}
+          selectedPlatform={gamesQuery.platform}
         />
-        <GameGrid
-          selectedGenre={selectedGenre}
-          selectedPlatform={selectedPlatform}
-        />
+        <GameGrid gamesQuery={gamesQuery} />
       </GridItem>
     </Grid>
   )
