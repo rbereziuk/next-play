@@ -8,5 +8,6 @@ export const useGames = (gamesQuery: GamesQuery) =>
       genres: gamesQuery.genre?.id,
       parent_platforms: gamesQuery.platform?.id,
       ordering: gamesQuery.ordering?.value,
+      search: gamesQuery.search,
     },
   })

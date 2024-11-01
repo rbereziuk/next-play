@@ -3,11 +3,15 @@ import logo from '../assets/nexp-play-logo.png'
 import { ColorModeSwitch } from './ColorModeSwitch'
 import { SearchInput } from './SearchInput'
 
-function NavBar() {
+interface Props {
+  onSubmitSearch: (searchText: string) => void
+}
+
+function NavBar({ onSubmitSearch }: Props) {
   return (
-    <HStack justifyContent="space-between" padding="10px">
+    <HStack justifyContent="space-between" padding={5}>
       <Image src={logo} boxSize="60px" />
-      <SearchInput />
+      <SearchInput onSubmitSearch={onSubmitSearch} />
       <ColorModeSwitch />
     </HStack>
   )

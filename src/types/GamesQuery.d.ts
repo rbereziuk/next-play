@@ -11,4 +11,5 @@ export interface GamesQuery {
   genre?: Genre
   platform?: ParentPlatform
   ordering?: SortByOption
+  search?: string
 }
