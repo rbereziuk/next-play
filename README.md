@@ -4,6 +4,8 @@
 
 Learning project from codewithmosh course. Video game discovery app, mini version of https://rawg.io/
 
+![preview](./project-preview.png)
+
 ## React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
