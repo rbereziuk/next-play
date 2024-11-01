@@ -7,6 +7,7 @@ import { useState } from 'react'
 import { PlatformSelector } from './components/PlatformSelector'
 import { GamesQuery } from './types/GamesQuery'
 import { SortSelector } from './components/SortSelector'
+import { MainHeading } from './components/MainHeading'
 
 function App() {
   const [gamesQuery, setGamesQuery] = useState<GamesQuery>({})
@@ -38,7 +39,8 @@ function App() {
         </GridItem>
       </Show>
       <GridItem as="main" area="main">
-        <HStack gap={5}>
+        <MainHeading gamesQuery={gamesQuery} />
+        <HStack gap={5} mt={5}>
           <PlatformSelector
             onSelect={(platform) => setGamesQuery({ ...gamesQuery, platform })}
             selectedPlatform={gamesQuery.platform}
