@@ -12,6 +12,7 @@ import { Game } from '../types/Games'
 import { PlatformsIcon } from './PlatformsIcon'
 import { CriticStore } from './CriticStore'
 import { croppedImageUrl } from '../services/cropped-image-url'
+import { RecommendationEmoji } from './RecommendationEmoji'
 
 interface Props {
   game: Game
@@ -28,6 +29,7 @@ export const GameCard = ({ game }: Props) => {
           <CriticStore score={game.metacritic} />
         </HStack>
         <Heading size="md">{game.name}</Heading>
+        <RecommendationEmoji rating={game.rating_top} />
       </CardHeader>
     </Card>
   )
